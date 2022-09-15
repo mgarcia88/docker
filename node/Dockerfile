@@ -2,12 +2,10 @@ FROM node:16.17
 
 WORKDIR /usr/src/app
 
-COPY index.js .
-COPY package.json .
-COPY db.js .
-
-EXPOSE 3000
+COPY package*.json ./
 
 RUN npm install
+COPY . .
 
-CMD [ "node", "index.js" ]
+EXPOSE 8080
+CMD [ "node", "index.js" ] 
