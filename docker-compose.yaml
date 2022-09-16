@@ -2,8 +2,7 @@ version: '3'
 
 services:
   db:
-    build: 
-      context: mysql
+    image: mysql:8.0.30
     command: --innodb-use-native-aio=0
     container_name: db
     restart: always
@@ -13,6 +12,8 @@ services:
     environment:
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=mgarcia
+      - MYSQL_PASSWORD=123456*
     networks: 
       - nodenet
     ports:
